@@ -6,6 +6,9 @@ import RaagAcademy from "./subSections/academy";
 import RaagStudio from "./subSections/studio";
 import RaagFoundation from "./subSections/foundation";
 
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +19,9 @@ function App() {
         <Route path="/studio" element={<RaagStudio />} />
         <Route path="/foundation" element={<RaagFoundation />} />
       </Routes>
+
+      <Analytics />
+      <SpeedInsights />
     </BrowserRouter>
   );
 }
