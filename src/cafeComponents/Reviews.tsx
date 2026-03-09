@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Star, Quote } from "lucide-react";
 
 const Reviews = () => {
   const ref = useRef(null);
@@ -11,42 +11,52 @@ const Reviews = () => {
       id: 1,
       name: "Rajnish Choubey",
       rating: 5,
-      review: "I had best time with my family at Raag Music Cafe. The ambiance is amazing, the food is delicious, and the live music made our evening truly special. Highly recommended!",
+      review:
+        "I had best time with my family at Raag Music Cafe. The ambiance is amazing, the food is delicious, and the live music made our evening truly special. Highly recommended!",
       date: "1 week ago",
-      avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100"
+      avatar:
+        "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100",
     },
     {
       id: 2,
       name: "RaipurFoodSafari",
       rating: 4,
-      review: "This place is perfect for hanging out with friends. Great food, good music, and a cozy atmosphere. The menu has something for everyone, and the prices are reasonable.",
+      review:
+        "This place is perfect for hanging out with friends. Great food, good music, and a cozy atmosphere. The menu has something for everyone, and the prices are reasonable.",
       date: "2 weeks ago",
-      avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100"
+      avatar:
+        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100",
     },
     {
       id: 3,
       name: "Mimansha",
       rating: 3,
-      review: "It's a kind of overrated cafe. The food is okay but nothing exceptional. The music is nice but the service could be better. Expected more based on the hype.",
+      review:
+        "It's a kind of overrated cafe. The food is okay but nothing exceptional. The music is nice but the service could be better. Expected more based on the hype.",
       date: "3 weeks ago",
-      avatar: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=100"
+      avatar:
+        "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=100",
     },
     {
       id: 4,
       name: "Pinky Sahu",
       rating: 4,
-      review: "I threw my nephew's 1st birthday party here and it was wonderful! The staff was very accommodating, the food was great, and the kids loved the music. Great venue for celebrations!",
+      review:
+        "I threw my nephew's 1st birthday party here and it was wonderful! The staff was very accommodating, the food was great, and the kids loved the music. Great venue for celebrations!",
       date: "5 days ago",
-      avatar: "https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg?auto=compress&cs=tinysrgb&w=100"
+      avatar:
+        "https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg?auto=compress&cs=tinysrgb&w=100",
     },
     {
       id: 5,
       name: "Kiran Yadav",
       rating: 5,
-      review: "Perfect blend of music, food, and atmosphere. This cafe has become my favorite spot in Raipur. The live performances are fantastic and the food never disappoints. A must-visit!",
+      review:
+        "Perfect blend of music, food, and atmosphere. This cafe has become my favorite spot in Raipur. The live performances are fantastic and the food never disappoints. A must-visit!",
       date: "4 days ago",
-      avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=100"
-    }
+      avatar:
+        "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=100",
+    },
   ];
 
   const renderStars = (rating: number) => {
@@ -54,7 +64,7 @@ const Reviews = () => {
       <Star
         key={index}
         className={`w-4 h-4 ${
-          index < rating ? 'text-accent-500 fill-current' : 'text-warm-300'
+          index < rating ? "text-accent-500 fill-current" : "text-warm-300"
         }`}
       />
     ));
@@ -74,8 +84,9 @@ const Reviews = () => {
             What Our Guests Say
           </h2>
           <p className="text-lg text-warm-700 max-w-3xl mx-auto leading-relaxed">
-            Don't just take our word for it. Here's what our community of music and food lovers 
-            have to say about their experiences at Raag Music Cafe.
+            Don't just take our word for it. Here's what our community of music
+            and food lovers have to say about their experiences at Raag Music
+            Cafe.
           </p>
         </motion.div>
 
@@ -89,7 +100,7 @@ const Reviews = () => {
               className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 relative"
             >
               <Quote className="absolute top-4 right-4 w-8 h-8 text-accent-200" />
-              
+
               <div className="flex items-center mb-4">
                 <img
                   src={review.avatar}
@@ -103,14 +114,12 @@ const Reviews = () => {
                   </div>
                 </div>
               </div>
-              
+
               <p className="text-warm-700 leading-relaxed mb-4 italic">
                 "{review.review}"
               </p>
-              
-              <div className="text-sm text-warm-500">
-                {review.date}
-              </div>
+
+              <div className="text-sm text-warm-500">{review.date}</div>
             </motion.div>
           ))}
         </div>
@@ -126,9 +135,18 @@ const Reviews = () => {
               Share Your Experience
             </h3>
             <p className="mb-6 text-primary-100">
-              Had a great time at Raag? We'd love to hear about your experience and share it with our community!
+              Had a great time at Raag? We'd love to hear about your experience
+              and share it with our community!
             </p>
-            <button className="bg-white text-primary-600 hover:bg-warm-50 px-8 py-3 rounded-full font-semibold transition-colors duration-300">
+            <button
+              onClick={() =>
+                window.open(
+                  "https://www.google.com/search?sca_esv=385c5ad9083a15d4&sxsrf=ANbL-n7UtjnghfG9lMRqwl64WMZC7vME5g:1772094349204&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOSpvjNZgPXscRNK2uNCao-E0dk0tDs86Inbz0B7ouAhBirItV8dxVjc_lRdXI3giBDPv4WpgMKUKep5TOTLY5ZMKPom6&q=RAAG+MUSIC+CAFE+Reviews&sa=X&ved=2ahUKEwjQksXx3faSAxUkm68BHQrsGS4Q0bkNegQIOxAF&biw=1920&bih=932&dpr=1",
+                  "_blank",
+                )
+              }
+              className="bg-white text-primary-600 hover:bg-warm-50 px-8 py-3 rounded-full font-semibold transition-colors duration-300"
+            >
               Write a Review
             </button>
           </div>

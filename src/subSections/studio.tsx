@@ -187,7 +187,7 @@ const RaagStudio: React.FC = () => {
         </div>
 
         <div className="inline-block border border-white/10 rounded-2xl p-10">
-          <p className="text-5xl font-extrabold text-[#D4AF37] mb-2">₹100</p>
+          <p className="text-5xl font-extrabold text-[#D4AF37] mb-2">₹1000</p>
           <p className="text-gray-400">per minute of recording</p>
           <p className="text-sm text-gray-500 mt-3">
             Includes recording, editing & mixing

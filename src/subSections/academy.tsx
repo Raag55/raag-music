@@ -1,10 +1,9 @@
-import React from "react";
+import React, {useRef} from "react";
 import { motion } from "framer-motion";
 import {
   Music,
   Clock,
   Calendar,
-  DollarSign,
 } from "lucide-react";
 
 const courses = [
@@ -26,6 +25,10 @@ const fadeUp = {
 };
 
 const RaagAcademy: React.FC = () => {
+  const coursesRef = useRef<HTMLDivElement | null>(null);
+  const scrollToCourses = () => {
+    coursesRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className="w-full bg-black text-white">
 
@@ -64,7 +67,7 @@ const RaagAcademy: React.FC = () => {
             variants={fadeUp}
             className="mt-10 flex justify-center gap-4"
           >
-            <button className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">
+            <button onClick={scrollToCourses} className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">
               Explore Courses
             </button>
             <button className="px-8 py-3 rounded-full border border-white/30 hover:border-white transition">
@@ -95,7 +98,7 @@ const RaagAcademy: React.FC = () => {
       </section>
 
       {/* COURSES */}
-      <section className="bg-black py-24 px-6">
+      <section ref={coursesRef} className="bg-black py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.h2
             className="text-3xl font-semibold text-center mb-14"
@@ -162,7 +165,7 @@ const RaagAcademy: React.FC = () => {
                 icon: Calendar,
                 slots: [
                   ["4:00 PM – 5:00 PM", "All Levels"],
-                  ["5:00 PM – 6:00 PM", "Advanced"],
+                  ["5:00 PM – 6:00 PM", "All Levels"],
                   ["6:00 PM – 7:00 PM", "All Levels"],
                   ["7:00 PM – 8:00 PM", "All Levels"],
                 ],
@@ -266,7 +269,7 @@ const RaagAcademy: React.FC = () => {
         </p>
 
         <button className="mt-10 inline-flex items-center gap-2 px-10 py-4 rounded-full bg-black text-white font-semibold hover:bg-zinc-800 transition">
-          <DollarSign /> Enroll Now
+          Enroll Now
         </button>
       </section>
 

@@ -215,7 +215,7 @@ const RaagMusic: React.FC = () => {
         </p>
 
         <Link
-          to="/cafe"
+          to="/cafe#events"
           className="inline-flex items-center px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition"
         >
           Discover Events

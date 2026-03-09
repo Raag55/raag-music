@@ -1,10 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { motion, useInView } from 'framer-motion';
 import { Calendar, Clock, Music, MapPin } from 'lucide-react';
 
 const Events = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#events" && sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
 
   const events = [
     {
@@ -45,8 +55,9 @@ const Events = () => {
     }
   ];
 
+  
   return (
-    <section id="events" className="py-20 bg-warm-900">
+    <section  ref={sectionRef} id="events" className="py-20 bg-warm-900">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}

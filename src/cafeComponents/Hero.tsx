@@ -68,12 +68,12 @@ const Hero = () => {
               View Menu
             </button>
             <a
-              href="https://www.swiggy.com/city/raipur/raag-music-cafe-civil-lines-rest1101218"
+              href="https://www.zomato.com/raipur/raag-music-cafe-civil-lines/order"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-yellow-400 hover:bg-yellow-500 text-warm-900 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg flex items-center space-x-2"
             >
-              <span>Order on Swiggy</span>
+              <span>Order on Zomato</span>
               <ExternalLink className="w-4 h-4" />
             </a>
           </motion.div>
