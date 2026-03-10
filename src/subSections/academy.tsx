@@ -70,7 +70,7 @@ const RaagAcademy: React.FC = () => {
             <button onClick={scrollToCourses} className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">
               Explore Courses
             </button>
-            <button className="px-8 py-3 rounded-full border border-white/30 hover:border-white transition">
+            <button className="px-8 py-3 rounded-full border border-white/30 hover:border-white transition" onClick={() => window.open("https://wa.me/919827958545?text=Hello, I am interested to join the academy!", "_blank")}>
               Enroll Now
             </button>
           </motion.div>
@@ -268,7 +268,7 @@ const RaagAcademy: React.FC = () => {
           Limited seats available · Free trial class for new students
         </p>
 
-        <button className="mt-10 inline-flex items-center gap-2 px-10 py-4 rounded-full bg-black text-white font-semibold hover:bg-zinc-800 transition">
+        <button className="mt-10 inline-flex items-center gap-2 px-10 py-4 rounded-full bg-black text-white font-semibold hover:bg-zinc-800 transition" onClick={() => window.open("https://wa.me/919827958545?text=Hello, I am interested to join the academy!", "_blank")}>
           Enroll Now
         </button>
       </section>
