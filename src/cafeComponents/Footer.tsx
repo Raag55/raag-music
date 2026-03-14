@@ -20,7 +20,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: <Facebook className="w-5 h-5" />, href: '#', name: 'Facebook' },
-    { icon: <Instagram className="w-5 h-5" />, href: '#', name: 'Instagram' },
+    { icon: <Instagram className="w-5 h-5" />, href: 'https://www.instagram.com/raagmusiccafe/?hl=en', name: 'Instagram' },
     { icon: <Twitter className="w-5 h-5" />, href: '#', name: 'Twitter' },
   ];
 
@@ -43,6 +43,7 @@ const Footer = () => {
                 <a
                   key={index}
                   href={social.href}
+                  target='_blank'
                   className="text-warm-400 hover:text-accent-400 transition-colors duration-300"
                   aria-label={social.name}
                 >
@@ -76,7 +77,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-accent-400 mt-1 flex-shrink-0" />
                 <p className="text-warm-200 text-sm">
-                  Main Road Shankar Nagar<br />
+                  Opp. Telibandha Talab<br />
                   Raipur, Chhattisgarh 492001
                 </p>
               </div>

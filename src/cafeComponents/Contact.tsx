@@ -32,7 +32,7 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Location",
-      content: "Main Road Shankar Nagar, Raipur, Chhattisgarh 492001",
+      content: "Opp. Telibandha talab, Raipur, Chhattisgarh 492001",
       link: "https://www.google.com/maps/place/RAAG+MUSIC+CAFE/@21.2414154,81.6546814,16z/data=!4m6!3m5!1s0x3a28ddfa4e2af059:0x37c05a3f4fdd78d4!8m2!3d21.2413954!4d81.6598312!16s%2Fg%2F11hdsc9lcn?entry=ttu&g_ep=EgoyMDI2MDIyMy4wIKXMDSoASAFQAw%3D%3D",
     },
     {

@@ -142,7 +142,7 @@ const Events = () => {
             <p className="text-warm-200 mb-6">
               Are you a musician or artist looking for a platform? We'd love to feature you at our events!
             </p>
-            <button className="bg-accent-500 hover:bg-accent-600 text-warm-900 px-8 py-3 rounded-full font-semibold transition-colors duration-300">
+            <button className="bg-accent-500 hover:bg-accent-600 text-warm-900 px-8 py-3 rounded-full font-semibold transition-colors duration-300" onClick={() => window.open("https://wa.me/919827958545?text=Hello, I am want to perform at cafe!", "_blank")}>
               Contact Us to Perform
             </button>
           </div>
