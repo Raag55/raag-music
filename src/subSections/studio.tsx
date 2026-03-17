@@ -83,7 +83,7 @@ const RaagStudio: React.FC = () => {
             animate="visible"
             className="mt-10 flex flex-wrap justify-center gap-4"
           >
-            <button className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">
+            <button className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition" onClick={() => window.open("https://wa.me/919827958545?text=Hello!, I want to record a session.", "_blank")}>
               Book a Session
             </button>
             <button
@@ -203,7 +203,7 @@ const RaagStudio: React.FC = () => {
         <p className="max-w-xl mx-auto text-gray-600 mb-8">
           From singles to voice-overs — we help artists achieve professional sound.
         </p>
-        <button className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-black text-white font-semibold hover:bg-zinc-800 transition">
+        <button className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-black text-white font-semibold hover:bg-zinc-800 transition" onClick={() => window.open("https://wa.me/919827958545?text=Hello!, I want to record a session.", "_blank")}>
           <Play /> Book a Session
         </button>
       </section>
