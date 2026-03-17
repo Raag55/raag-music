@@ -34,7 +34,7 @@ const Menu = () => {
       category: "beverages",
       isVegan: true,
       isSpecial: false,
-      image: "https://images.pexels.com/photos/1638280/pexels-photo-1638280.jpeg?auto=compress&cs=tinysrgb&w=400"
+      image: "https://www.teaforturmeric.com/wp-content/uploads/2021/11/Masala-Chai-Tea-Recipe-Card.jpg"
     },
     {
       id: 3,
@@ -44,7 +44,7 @@ const Menu = () => {
       category: "mains",
       isVegan: false,
       isSpecial: false,
-      image: "https://images.pexels.com/photos/5410400/pexels-photo-5410400.jpeg?auto=compress&cs=tinysrgb&w=400"
+      image: "https://lentillovingfamily.com/wp-content/uploads/2025/08/paneer-tikka-2.jpg"
     },
     {
       id: 4,
@@ -64,7 +64,7 @@ const Menu = () => {
       category: "specials",
       isVegan: false,
       isSpecial: true,
-      image: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=400"
+      image: "https://mealawe.com/wp-content/uploads/2025/01/Indian-Thali.jpg"
     },
     {
       id: 6,
@@ -94,7 +94,7 @@ const Menu = () => {
       category: "mains",
       isVegan: false,
       isSpecial: false,
-      image: "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=400"
+      image: "https://www.indianveggiedelight.com/wp-content/uploads/2022/12/white-sauce-pasta-featured.jpg"
     }
   ];
 
