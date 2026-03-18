@@ -1,10 +1,7 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import {
-  Music,
-  Clock,
-  Calendar,
-} from "lucide-react";
+import { Music, Clock, Calendar} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const courses = [
   "Singing",
@@ -38,7 +35,11 @@ const RaagAcademy: React.FC = () => {
         <div className="absolute top-6 left-6">
           {/* Replace with real logo */}
           <div className="h-12 w-12 rounded-full border border-white/20 flex items-center justify-center text-sm text-gray-400">
-            <img src="/images/academy.png" alt="Raag Logo" className="object-contain h-full w-full" />
+            <img
+              src="/images/academy.png"
+              alt="Raag Logo"
+              className="object-contain h-full w-full"
+            />
           </div>
         </div>
 
@@ -67,10 +68,21 @@ const RaagAcademy: React.FC = () => {
             variants={fadeUp}
             className="mt-10 flex justify-center gap-4"
           >
-            <button onClick={scrollToCourses} className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">
+            <button
+              onClick={scrollToCourses}
+              className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition"
+            >
               Explore Courses
             </button>
-            <button className="px-8 py-3 rounded-full border border-white/30 hover:border-white transition" onClick={() => window.open("https://wa.me/919827958545?text=Hello, I am interested to join the academy!", "_blank")}>
+            <button
+              className="px-8 py-3 rounded-full border border-white/30 hover:border-white transition"
+              onClick={() =>
+                window.open(
+                  "https://wa.me/919827958545?text=Hello, I am interested to join the academy!",
+                  "_blank",
+                )
+              }
+            >
               Enroll Now
             </button>
           </motion.div>
@@ -182,7 +194,10 @@ const RaagAcademy: React.FC = () => {
 
                 <ul className="mt-6 space-y-3">
                   {batch.slots.map(([time, level]) => (
-                    <li key={time} className="flex justify-between text-gray-700">
+                    <li
+                      key={time}
+                      className="flex justify-between text-gray-700"
+                    >
                       <span>{time}</span>
                       <span className="font-medium">{level}</span>
                     </li>
@@ -247,7 +262,8 @@ const RaagAcademy: React.FC = () => {
           </div>
 
           <p className="text-center text-gray-400 mt-10">
-            Registration Fee: <span className="text-white font-medium">₹499</span>
+            Registration Fee:{" "}
+            <span className="text-white font-medium">₹499</span>
           </p>
         </div>
       </section>
@@ -268,14 +284,46 @@ const RaagAcademy: React.FC = () => {
           Limited seats available · Free trial class for new students
         </p>
 
-        <button className="mt-10 inline-flex items-center gap-2 px-10 py-4 rounded-full bg-black text-white font-semibold hover:bg-zinc-800 transition" onClick={() => window.open("https://wa.me/919827958545?text=Hello, I am interested to join the academy!", "_blank")}>
+        <button
+          className="mt-10 inline-flex items-center gap-2 px-10 py-4 rounded-full bg-black text-white font-semibold hover:bg-zinc-800 transition"
+          onClick={() =>
+            window.open(
+              "https://wa.me/919827958545?text=Hello, I am interested to join the academy!",
+              "_blank",
+            )
+          }
+        >
           Enroll Now
         </button>
       </section>
 
       {/* FOOTER */}
       <footer className="bg-black border-t border-white/10 py-8 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} Raag Academy. All rights reserved.
+        <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto px-4 gap-4">
+          {/* Left */}
+          <span>
+            © {new Date().getFullYear()} Raag Music. All rights reserved.
+          </span>
+
+          {/* Right */}
+          <div className="flex items-center gap-4">
+            <Link
+              to="/privacy-policy"
+              className="hover:text-white transition underline-offset-4 hover:underline"
+            >
+              Privacy Policy
+            </Link>
+
+            <span className="text-gray-600">|</span>
+
+            <Link
+              to="/terms-of-use"
+              className="hover:text-white transition underline-offset-4 hover:underline"
+            >
+              Terms of Use
+            </Link>
+          </div>
+        </div>
       </footer>
     </div>
   );

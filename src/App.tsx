@@ -5,9 +5,11 @@ import RaagCafe from "./subSections/cafe";
 import RaagAcademy from "./subSections/academy";
 import RaagStudio from "./subSections/studio";
 import RaagFoundation from "./subSections/foundation";
+import PrivacyPolicy from "./subSections/privacyPolicy";
+import TermsOfUse from "./subSections/TermsOfUse";
 
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/academy" element={<RaagAcademy />} />
         <Route path="/studio" element={<RaagStudio />} />
         <Route path="/foundation" element={<RaagFoundation />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
       </Routes>
 
       <Analytics />

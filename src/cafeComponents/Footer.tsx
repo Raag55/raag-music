@@ -146,10 +146,10 @@ const Footer = () => {
               © 2024 Raag Music Cafe. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-warm-400 hover:text-accent-400 transition-colors duration-300">
+              <a href="/privacy-policy" className="text-warm-400 hover:text-accent-400 transition-colors duration-300">
                 Privacy Policy
               </a>
-              <a href="#" className="text-warm-400 hover:text-accent-400 transition-colors duration-300">
+              <a href="/terms-of-use" className="text-warm-400 hover:text-accent-400 transition-colors duration-300">
                 Terms of Service
               </a>
             </div>

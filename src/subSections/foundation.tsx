@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Heart, Users, Music, Gift } from "lucide-react";
 
 const features = [
@@ -179,8 +180,32 @@ const RaagFoundation: React.FC = () => {
 
       {/* FOOTER */}
       <footer className="bg-black border-t border-white/10 py-8 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} Raag Foundation. All rights reserved.
-      </footer>
+              <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto px-4 gap-4">
+                {/* Left */}
+                <span>
+                  © {new Date().getFullYear()} Raag Music. All rights reserved.
+                </span>
+      
+                {/* Right */}
+                <div className="flex items-center gap-4">
+                  <Link
+                    to="/privacy-policy"
+                    className="hover:text-white transition underline-offset-4 hover:underline"
+                  >
+                    Privacy Policy
+                  </Link>
+      
+                  <span className="text-gray-600">|</span>
+      
+                  <Link
+                    to="/terms-of-use"
+                    className="hover:text-white transition underline-offset-4 hover:underline"
+                  >
+                    Terms of Use
+                  </Link>
+                </div>
+              </div>
+            </footer>
     </div>
   );
 };

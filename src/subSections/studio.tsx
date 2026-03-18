@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Music, Headphones, Monitor, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -45,7 +46,6 @@ const RaagStudio: React.FC = () => {
 
   return (
     <div className="w-full bg-black text-white">
-
       {/* HERO */}
       <section className="relative min-h-[85vh] flex items-center justify-center px-6">
         {/* Logo */}
@@ -83,7 +83,15 @@ const RaagStudio: React.FC = () => {
             animate="visible"
             className="mt-10 flex flex-wrap justify-center gap-4"
           >
-            <button className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition" onClick={() => window.open("https://wa.me/919827958545?text=Hello!, I want to record a session.", "_blank")}>
+            <button
+              className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition"
+              onClick={() =>
+                window.open(
+                  "https://wa.me/919827958545?text=Hello!, I want to record a session.",
+                  "_blank",
+                )
+              }
+            >
               Book a Session
             </button>
             <button
@@ -119,8 +127,9 @@ const RaagStudio: React.FC = () => {
           >
             <h2 className="text-3xl font-semibold mb-4">About the Studio</h2>
             <p className="text-gray-600">
-              Raag Studio combines experienced engineers, professional equipment,
-              and comfortable spaces so artists can focus purely on creativity.
+              Raag Studio combines experienced engineers, professional
+              equipment, and comfortable spaces so artists can focus purely on
+              creativity.
             </p>
 
             <div className="mt-6 space-y-3">
@@ -197,20 +206,51 @@ const RaagStudio: React.FC = () => {
 
       {/* CTA */}
       <section className="bg-white text-black py-24 px-6 text-center">
-        <h2 className="text-3xl font-semibold mb-4">
-          Record With Raag Studio
-        </h2>
+        <h2 className="text-3xl font-semibold mb-4">Record With Raag Studio</h2>
         <p className="max-w-xl mx-auto text-gray-600 mb-8">
-          From singles to voice-overs — we help artists achieve professional sound.
+          From singles to voice-overs — we help artists achieve professional
+          sound.
         </p>
-        <button className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-black text-white font-semibold hover:bg-zinc-800 transition" onClick={() => window.open("https://wa.me/919827958545?text=Hello!, I want to record a session.", "_blank")}>
+        <button
+          className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-black text-white font-semibold hover:bg-zinc-800 transition"
+          onClick={() =>
+            window.open(
+              "https://wa.me/919827958545?text=Hello!, I want to record a session.",
+              "_blank",
+            )
+          }
+        >
           <Play /> Book a Session
         </button>
       </section>
 
       {/* FOOTER */}
       <footer className="bg-black border-t border-white/10 py-8 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} Raag Studio. All rights reserved.
+        <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto px-4 gap-4">
+          {/* Left */}
+          <span>
+            © {new Date().getFullYear()} Raag Music. All rights reserved.
+          </span>
+
+          {/* Right */}
+          <div className="flex items-center gap-4">
+            <Link
+              to="/privacy-policy"
+              className="hover:text-white transition underline-offset-4 hover:underline"
+            >
+              Privacy Policy
+            </Link>
+
+            <span className="text-gray-600">|</span>
+
+            <Link
+              to="/terms-of-use"
+              className="hover:text-white transition underline-offset-4 hover:underline"
+            >
+              Terms of Use
+            </Link>
+          </div>
+        </div>
       </footer>
 
       {/* MODAL */}

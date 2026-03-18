@@ -46,12 +46,15 @@ const RaagMusic: React.FC = () => {
 
   return (
     <div className="w-full bg-black text-white">
-
       {/* HERO */}
       <section className="relative min-h-[85vh] flex items-center justify-center px-6">
         <div className="absolute top-6 left-6">
           <div className="h-12 w-12 rounded-full border border-white/20 flex items-center justify-center text-xs text-gray-400">
-            <img src="/images/music.png" alt="Raag Logo" className="object-contain h-full w-full" />
+            <img
+              src="/images/music.png"
+              alt="Raag Logo"
+              className="object-contain h-full w-full"
+            />
           </div>
         </div>
 
@@ -71,7 +74,8 @@ const RaagMusic: React.FC = () => {
             animate="visible"
             className="mt-6 text-lg text-gray-400"
           >
-            A community of learning, creation and performance — all under one roof.
+            A community of learning, creation and performance — all under one
+            roof.
           </motion.p>
 
           <motion.div
@@ -199,28 +203,33 @@ const RaagMusic: React.FC = () => {
       </section>
 
       {/* CTA FOOTER */}
-      <section className="bg-black py-20 px-6 text-center border-t border-white/10">
-        <motion.h5
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-2xl font-semibold mb-4"
-        >
-          Welcome to the World of Raag
-        </motion.h5>
+      <footer className="bg-black border-t border-white/10 py-8 text-center text-sm text-gray-400">
+        <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto px-4 gap-4">
+          {/* Left */}
+          <span>
+            © {new Date().getFullYear()} Raag Music. All rights reserved.
+          </span>
 
-        <p className="text-gray-400 mb-8">
-          Explore music. Learn music. Live music.
-        </p>
+          {/* Right */}
+          <div className="flex items-center gap-4">
+            <Link
+              to="/privacy-policy"
+              className="hover:text-white transition underline-offset-4 hover:underline"
+            >
+              Privacy Policy
+            </Link>
 
-        <Link
-          to="/cafe#events"
-          className="inline-flex items-center px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition"
-        >
-          Discover Events
-        </Link>
-      </section>
+            <span className="text-gray-600">|</span>
+
+            <Link
+              to="/terms-of-use"
+              className="hover:text-white transition underline-offset-4 hover:underline"
+            >
+              Terms of Use
+            </Link>
+          </div>
+        </div>
+      </footer>
 
       {/* IMAGE MODAL */}
       {preview && (
@@ -236,7 +245,11 @@ const RaagMusic: React.FC = () => {
             >
               Close
             </button>
-            <img src={preview} alt="preview" className="rounded-xl w-full object-cover" />
+            <img
+              src={preview}
+              alt="preview"
+              className="rounded-xl w-full object-cover"
+            />
           </div>
         </motion.div>
       )}
