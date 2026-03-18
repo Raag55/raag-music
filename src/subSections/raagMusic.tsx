@@ -42,7 +42,119 @@ const fadeUp = {
 };
 
 const RaagMusic: React.FC = () => {
+  const [consent, setConsent] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState<any>({});
+
+  const validate = () => {
+    const newErrors: any = {};
+
+    // Name
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!consent) {
+      newErrors.consent = "You must agree before submitting";
+    }
+
+    // Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email) {
+      newErrors.email = "Email is required";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+    }
+
+    // Phone (Indian format)
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (!formData.phone) {
+      newErrors.phone = "Contact number is required";
+    } else if (!phoneRegex.test(formData.phone)) {
+      newErrors.phone = "Enter a valid 10-digit number";
+    }
+
+    // Message
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+
+    return newErrors;
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+
+    // Restrict phone to numbers only
+    if (name === "phone") {
+      if (!/^\d*$/.test(value)) return; // allow only digits
+    }
+
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    let error = "";
+
+    if (name === "name" && !value.trim()) {
+      error = "Name is required";
+    }
+
+    if (name === "email") {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!value) error = "Email is required";
+      else if (!emailRegex.test(value)) error = "Invalid email format";
+    }
+
+    if (name === "phone") {
+      const phoneRegex = /^[6-9]\d{9}$/;
+      if (!value) error = "Contact number is required";
+      else if (!phoneRegex.test(value)) error = "Enter a valid 10-digit number";
+    }
+
+    if (name === "message" && !value.trim()) {
+      error = "Message is required";
+    }
+
+    setErrors((prev: any) => ({
+      ...prev,
+      [name]: error,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const validationErrors = validate();
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+      setSubmitted(true);
+      setFormData({ name: "", email: "", phone: "", message: "" });
+      setErrors({});
+      setConsent(false);
+
+      // Optional: auto-hide success message after 4 sec
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 4000);
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    }
+  };
 
   return (
     <div className="w-full bg-black text-white">
@@ -184,7 +296,7 @@ const RaagMusic: React.FC = () => {
         </div>
       </section>
 
-      {/* VISION */}
+      {/* CONTACT*/}
       <section className="bg-white text-black py-24 px-6 text-center">
         <motion.h4
           variants={fadeUp}
@@ -193,13 +305,131 @@ const RaagMusic: React.FC = () => {
           viewport={{ once: true }}
           className="text-3xl font-semibold mb-6"
         >
-          Our Vision
+          Get in Touch
         </motion.h4>
 
-        <p className="max-w-3xl mx-auto text-gray-600">
-          Nurture talent, preserve tradition, and craft meaningful musical
-          experiences for communities, creators and learners.
+        <p className="max-w-2xl mx-auto text-gray-600 mb-12">
+          Have a question or want to connect? Fill out the form below.
         </p>
+        {submitted && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-3xl mx-auto mb-8 p-4 rounded-lg bg-green-100 text-green-700 text-center font-medium"
+          >
+            ✅ Your message has been submitted successfully!
+          </motion.div>
+        )}
+        <motion.form
+          onSubmit={handleSubmit}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto space-y-6 text-left"
+        >
+          {/* Name */}
+          <div>
+            <label className="block mb-2">Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`w-full px-4 py-3 border rounded-lg ${
+                errors.name ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+            )}
+          </div>
+
+          {/* Email */}
+          <div>
+            <label className="block mb-2">Email</label>
+            <input
+              type="text"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`w-full px-4 py-3 border rounded-lg ${
+                errors.email ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
+
+          {/* Phone */}
+          <div>
+            <label className="block mb-2">Contact Number</label>
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              maxLength={10}
+              className={`w-full px-4 py-3 border rounded-lg ${
+                errors.phone ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.phone && (
+              <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+            )}
+          </div>
+
+          {/* Message */}
+          <div>
+            <label className="block mb-2">Message</label>
+            <textarea
+              name="message"
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`w-full px-4 py-3 border rounded-lg ${
+                errors.message ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.message && (
+              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+            )}
+          </div>
+
+          <div className="flex items-start gap-3">
+            <input
+              type="checkbox"
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+              className="mt-1 accent-black cursor-pointer"
+            />
+
+            <p className="text-sm text-gray-600">
+              I agree to receive RCS, SMS and WhatsApp alerts regarding my
+              account and promotional events. I understand that I can opt out at
+              any time.
+            </p>
+          </div>
+
+          {errors.consent && (
+            <p className="text-red-500 text-sm mt-1">{errors.consent}</p>
+          )}
+
+          {/* Submit */}
+          <div className="text-center pt-4">
+            <button
+              type="submit"
+              className="px-10 py-3 rounded-full bg-black text-white font-semibold hover:bg-gray-800 transition"
+            >
+              Submit
+            </button>
+          </div>
+        </motion.form>
       </section>
 
       {/* CTA FOOTER */}
