@@ -5,7 +5,7 @@ import RaagCafe from "./subSections/cafe";
 import RaagAcademy from "./subSections/academy";
 import RaagStudio from "./subSections/studio";
 import RaagFoundation from "./subSections/foundation";
-import PrivacyPolicy from "./subSections/privacyPolicy";
+import PrivacyPolicy from "./subSections/PrivacyPolicy.tsx";
 import TermsOfUse from "./subSections/TermsOfUse";
 
 import { Analytics } from "@vercel/analytics/react";
